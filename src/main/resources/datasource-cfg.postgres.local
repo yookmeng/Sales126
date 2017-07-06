@@ -1,0 +1,6 @@
+# DataSource
+ 
+ds.database-driver=org.postgresql.Driver
+ds.url=jdbc:postgresql://localhost/MyPAdb
+ds.username=postgres
+ds.password=*password*

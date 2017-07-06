@@ -1,0 +1,9 @@
+# DataSource
+ 
+ds.database-driver=org.postgresql.Driver
+ds.url=jdbc:postgresql://ec2-54-235-65-221.compute-1.amazonaws.com/dc3okccfjrp45f
+ds.username=habkbsngikjfeq
+ds.password=WoTRLcQdllIUpgHl-DsY5QvQ7o
+ds.sslmode=require
+ds.ssl=true
+ds.sslfactory=org.postgresql.ssl.NonValidatingFactory
