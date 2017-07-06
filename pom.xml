@@ -5,10 +5,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
  
 <modelVersion>4.0.0</modelVersion>
 <groupId>com.SpringMVC</groupId>
-<artifactId>SalesDiaryPro</artifactId>
+<artifactId>Sales126</artifactId>
 <packaging>war</packaging>
 <version>0.0.1-SNAPSHOT</version>
-<name>SalesDiaryPro Maven Webapp</name>
+<name>Sales126 Maven Webapp</name>
 <url>http://maven.apache.org</url>
 
   <properties>
@@ -229,7 +229,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
  </dependencies>
   
 <build>
-	<finalName>SalesDiaryPro</finalName>
+	<finalName>Sales126</finalName>
 	<plugins>
          <!-- Config: Maven Tomcat Plugin -->
          <!-- http://mvnrepository.com/artifact/org.apache.tomcat.maven/tomcat7-maven-plugin -->

@@ -31,7 +31,6 @@ import org.springframework.web.servlet.view.JstlView;
 // Load to Environment.
 @PropertySource("classpath:datasource-cfg.postgres.heroku")
 //@PropertySource("classpath:datasource-cfg.postgres.local")
-//@PropertySource("classpath:datasource-cfg.mssql")
 public class ApplicationContextConfig {
  
   // The Environment class serves as the property holder
