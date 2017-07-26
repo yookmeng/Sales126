@@ -5,6 +5,8 @@ public class Order {
     private int projectid;
     private int productid;
     private String productname;
+    private int prodtype;
+    private String prodtypename;
     private int quantity;
     private float price;
     private float amount;
@@ -13,11 +15,13 @@ public class Order {
     }
  
     public Order(int orderid, int projectid, int productid, String productname, 
-    		int quantity, float price, float amount) {
+    		int prodtype, String prodtypename, int quantity, float price, float amount) {
         this.orderid = orderid;
         this.projectid = projectid;
         this.productid = productid;
         this.productname = productname;
+        this.prodtype = prodtype;
+        this.prodtypename = prodtypename;
         this.quantity = quantity;
         this.price = price;
         this.amount = amount;
@@ -49,6 +53,20 @@ public class Order {
     }  
     public void setproductname(String productname) {
         this.productname = productname;
+    }
+
+    public int getprodtype() {
+        return prodtype;
+    }  
+    public void setprodtype(int prodtype) {
+        this.prodtype = prodtype;
+    }
+
+    public String getprodtypename() {
+        return prodtypename;
+    }  
+    public void setprodtypename(String prodtypename) {
+        this.prodtypename = prodtypename;
     }
 
     public int getquantity() {

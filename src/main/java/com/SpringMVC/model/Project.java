@@ -139,7 +139,7 @@ public class Project {
         this.units = units;
     }
 
-    public int getuotationid() {
+    public int getquotationid() {
         return quotationid;
     }
     public void setquotationid(int quotationid) {

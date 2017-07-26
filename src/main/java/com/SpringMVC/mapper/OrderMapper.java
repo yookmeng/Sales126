@@ -14,11 +14,13 @@ public class OrderMapper implements RowMapper<Order> {
         int projectid = rs.getInt("projectid");
         int productid = rs.getInt("productid");
         String productname = rs.getString("productname");
+        int prodtype = rs.getInt("prodtype");
+        String prodtypename = rs.getString("prodtypename");
         int quantity = rs.getInt("quantity");
         float price = rs.getFloat("price");
         float amount = rs.getFloat("amount");
         
         return new Order(orderid, projectid, productid, productname, 
-        		quantity, price, amount);
+        		prodtype, prodtypename, quantity, price, amount);
     }
 }
