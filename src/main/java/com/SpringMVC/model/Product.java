@@ -7,25 +7,40 @@ public class Product {
     private String prodtypename;
     private int companyid;
     private float price;
-    private String productdesc1;
-    private String productdesc2;
-    private String productdesc3;
+    private String desc01;
+    private String desc02;
+    private String desc03;
+    private String desc04;
+    private String desc05;
+    private String desc06;
+    private String desc07;
+    private String desc08;
+    private String desc09;
+    private String desc10;
     
     public Product() {
     }
  
     public Product(int productid, String productname, String prodtype, String prodtypename, 
     		int companyid, float price, 
-    		String productdesc1, String productdesc2, String productdesc3) {
+    		String desc01, String desc02, String desc03, String desc04, String desc05,
+    		String desc06, String desc07, String desc08, String desc09, String desc10) {
         this.productid = productid;
         this.productname = productname;
         this.prodtype = prodtype;
         this.prodtypename = prodtypename;
         this.companyid = companyid;
         this.price = price;
-        this.productdesc1 = productdesc1;
-        this.productdesc2 = productdesc2;
-        this.productdesc3 = productdesc3;
+        this.desc01 = desc01;
+        this.desc02 = desc02;
+        this.desc03 = desc03;
+        this.desc04 = desc04;
+        this.desc05 = desc05;
+        this.desc06 = desc06;
+        this.desc07 = desc07;
+        this.desc08 = desc08;
+        this.desc09 = desc09;
+        this.desc10 = desc10;
 }
  
     public int getproductid() {
@@ -70,24 +85,73 @@ public class Product {
         this.price = price;
     }
 
-    public String getproductdesc1() {
-        return productdesc1;
+    public String getdesc01() {
+        return desc01;
     }  
-    public void setproductdesc1(String productdesc1) {
-        this.productdesc1 = productdesc1;
+    public void setdesc01(String desc01) {
+        this.desc01 = desc01;
     }
 
-    public String getproductdesc2() {
-        return productdesc2;
+    public String getdesc02() {
+        return desc02;
     }  
-    public void setproductdesc2(String productdesc2) {
-        this.productdesc2 = productdesc2;
+    public void setdesc02(String desc02) {
+        this.desc02 = desc02;
     }
 
-    public String getproductdesc3() {
-        return productdesc3;
+    public String getdesc03() {
+        return desc03;
     }  
-    public void setproductdesc3(String productdesc3) {
-        this.productdesc3 = productdesc3;
+    public void setdesc03(String desc03) {
+        this.desc03 = desc03;
+    }
+
+    public String getdesc04() {
+        return desc04;
+    }  
+    public void setdesc04(String desc04) {
+        this.desc04 = desc04;
+    }
+
+    public String getdesc05() {
+        return desc05;
+    }  
+    public void setdesc05(String desc05) {
+        this.desc05 = desc05;
+    }
+
+    public String getdesc06() {
+        return desc06;
+    }  
+    public void setdesc06(String desc06) {
+        this.desc06 = desc06;
+    }
+
+    public String getdesc07() {
+        return desc07;
+    }  
+    public void setdesc07(String desc07) {
+        this.desc07 = desc07;
+    }
+
+    public String getdesc08() {
+        return desc08;
+    }  
+    public void setdesc08(String desc08) {
+        this.desc08 = desc08;
+    }
+
+    public String getdesc09() {
+        return desc09;
+    }  
+    public void setdesc09(String desc09) {
+        this.desc09 = desc09;
+    }
+
+    public String getdesc10() {
+        return desc10;
+    }  
+    public void setdesc10(String desc10) {
+        this.desc10 = desc10;
     }
 }

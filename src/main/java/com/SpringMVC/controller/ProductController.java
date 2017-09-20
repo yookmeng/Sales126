@@ -71,6 +71,16 @@ public class ProductController {
         }
         currentProduct.setproductname(product.getproductname());
         currentProduct.setprice(product.getprice());
+        currentProduct.setdesc01(product.getdesc01());
+        currentProduct.setdesc02(product.getdesc02());
+        currentProduct.setdesc03(product.getdesc03());
+        currentProduct.setdesc04(product.getdesc04());
+        currentProduct.setdesc05(product.getdesc05());
+        currentProduct.setdesc06(product.getdesc06());
+        currentProduct.setdesc07(product.getdesc07());
+        currentProduct.setdesc08(product.getdesc08());
+        currentProduct.setdesc09(product.getdesc09());
+        currentProduct.setdesc10(product.getdesc10());
 
         productDAO.update(currentProduct);
         return new ResponseEntity<Product>(product, HttpStatus.OK);

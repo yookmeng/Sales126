@@ -26,20 +26,28 @@ public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
         // insert
         String sql = "INSERT INTO tblProduct ("
         		+ "productname, prodtype, companyid, price, "
-        		+ "productdesc1, productdesc2, productdesc3) "
-        		+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        		+ "desc01, desc02, desc03, desc04, desc05,"
+        		+ "desc06, desc07, desc08, desc09, desc10) "
+        		+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         this.getJdbcTemplate().update(sql, 
         		product.getproductname(), product.getprodtype(), product.getcompanyid(), product.getprice(), 
-        		product.getproductdesc1(), product.getproductdesc2(), product.getproductdesc3());
+        		product.getdesc01(), product.getdesc02(), product.getdesc03(), 
+        		product.getdesc04(), product.getdesc05(), product.getdesc06(),
+        		product.getdesc07(), product.getdesc08(), product.getdesc09(), 
+        		product.getdesc10());
     }
     
     public void update(Product product) {
         // update
         String sql = "UPDATE tblProduct SET productname=?, prodtype=?, price=?, "
-        		+ "productdesc1=?, productdesc2=?, productdesc3 WHERE productid=?";
+        		+ "desc01=?, desc02=?, desc03=?, desc04=?, desc05=?, "
+        		+ "desc06=?, desc07=?, desc08=?, desc09=?, desc10=? WHERE productid=?";
         this.getJdbcTemplate().update(sql, 
         		product.getproductname(), product.getprodtype(), product.getprice(), 
-        		product.getproductdesc1(), product.getproductdesc2(), product.getproductdesc3());
+        		product.getdesc01(), product.getdesc02(), product.getdesc03(), 
+        		product.getdesc04(), product.getdesc05(), product.getdesc06(),
+        		product.getdesc07(), product.getdesc08(), product.getdesc09(), 
+        		product.getdesc10(), product.getproductid());
     }
 
     public void delete(int productid) {
@@ -49,7 +57,9 @@ public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
     
     public List<Product> getAll(int companyid) {
         String sql = "SELECT productid, productname, prodtype, codename AS prodtypename, "
-        		+ "companyid, price, productdesc1, productdesc2, productdesc3 "
+        		+ "companyid, price, "
+        		+ "desc01, desc02, desc03, desc04, desc05, "
+        		+ "desc06, desc07, desc08, desc09, desc10 "
         		+ "FROM tblProduct "
         		+ "LEFT JOIN tblCodeMaster ON codetype = 'PRODUCT' AND codeid = prodtype "        		
         		+ "WHERE companyid = " + companyid;
@@ -60,7 +70,9 @@ public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
 
     public Product get(int productid) {
         String sql = "SELECT productid, productname, prodtype, codename AS prodtypename, "
-        		+ "companyid, price, productdesc1, productdesc2, productdesc3 "
+        		+ "companyid, price, "
+        		+ "desc01, desc02, desc03, desc04, desc05, "
+        		+ "desc06, desc07, desc08, desc09, desc10 "
         		+ "FROM tblProduct "
         		+ "LEFT JOIN tblCodeMaster ON codetype = 'PRODUCT' AND codeid = prodtype "        		
 	    		+ "WHERE productid=" + productid;
@@ -77,9 +89,16 @@ public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
 	                product.setprodtypename(rs.getString("prodtypename"));
 	                product.setcompanyid(rs.getInt("companyid"));
 	                product.setprice(rs.getFloat("price"));
-	                product.setproductdesc1(rs.getString("productdesc1"));
-	                product.setproductdesc2(rs.getString("productdesc2"));
-	                product.setproductdesc3(rs.getString("productdesc3"));
+	                product.setdesc01(rs.getString("desc01"));
+	                product.setdesc02(rs.getString("desc02"));
+	                product.setdesc03(rs.getString("desc03"));
+	                product.setdesc04(rs.getString("desc04"));
+	                product.setdesc05(rs.getString("desc05"));
+	                product.setdesc06(rs.getString("desc06"));
+	                product.setdesc07(rs.getString("desc07"));
+	                product.setdesc08(rs.getString("desc08"));
+	                product.setdesc09(rs.getString("desc09"));
+	                product.setdesc10(rs.getString("desc10"));
 	                return product;
 	            }	 
 	            return null;
