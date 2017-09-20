@@ -51,7 +51,7 @@ public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
         String sql = "SELECT productid, productname, prodtype, codename AS prodtypename, "
         		+ "companyid, price, productdesc1, productdesc2, productdesc3 "
         		+ "FROM tblProduct "
-        		+ "LEFT JOIN tblCodeMaster ON codetype = 'PRODTYPE' AND codeid = prodtype "        		
+        		+ "LEFT JOIN tblCodeMaster ON codetype = 'PRODUCT' AND codeid = prodtype "        		
         		+ "WHERE companyid = " + companyid;
         ProductMapper mapper = new ProductMapper();
         List<Product> list = this.getJdbcTemplate().query(sql, mapper);
@@ -62,7 +62,7 @@ public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
         String sql = "SELECT productid, productname, prodtype, codename AS prodtypename, "
         		+ "companyid, price, productdesc1, productdesc2, productdesc3 "
         		+ "FROM tblProduct "
-        		+ "LEFT JOIN tblCodeMaster ON codetype = 'PRODTYPE' AND codeid = prodtype "        		
+        		+ "LEFT JOIN tblCodeMaster ON codetype = 'PRODUCT' AND codeid = prodtype "        		
 	    		+ "WHERE productid=" + productid;
 	    return this.getJdbcTemplate().query(sql, new ResultSetExtractor<Product>() {
 	 
