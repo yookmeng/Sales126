@@ -12,7 +12,7 @@ public class ProductMapper implements RowMapper<Product> {
     public Product mapRow(ResultSet rs, int rowNum) throws SQLException { 
         int productid = rs.getInt("productid");
         String productname = rs.getString("productname");
-        int prodtype = rs.getInt("prodtype");
+        String prodtype = rs.getString("prodtype");
         String prodtypename = rs.getString("prodtypename");
         int companyid = rs.getInt("companyid");
         float price = rs.getFloat("price");

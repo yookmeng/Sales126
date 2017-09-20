@@ -3,7 +3,7 @@ package com.SpringMVC.model;
 public class Product {
     private int productid;
     private String productname;
-    private int prodtype;
+    private String prodtype;
     private String prodtypename;
     private int companyid;
     private float price;
@@ -14,7 +14,7 @@ public class Product {
     public Product() {
     }
  
-    public Product(int productid, String productname, int prodtype, String prodtypename, 
+    public Product(int productid, String productname, String prodtype, String prodtypename, 
     		int companyid, float price, 
     		String productdesc1, String productdesc2, String productdesc3) {
         this.productid = productid;
@@ -42,10 +42,10 @@ public class Product {
         this.productname = productname;
     }
 
-    public int getprodtype() {
+    public String getprodtype() {
         return prodtype;
     }  
-    public void setprodtype(int prodtype) {
+    public void setprodtype(String prodtype) {
         this.prodtype = prodtype;
     }
 

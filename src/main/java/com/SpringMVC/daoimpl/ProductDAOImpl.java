@@ -73,7 +73,7 @@ public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
 	                Product product = new Product();
 	                product.setproductid(rs.getInt("productid"));
 	                product.setproductname(rs.getString("productname"));
-	                product.setprodtype(rs.getInt("prodtype"));
+	                product.setprodtype(rs.getString("prodtype"));
 	                product.setprodtypename(rs.getString("prodtypename"));
 	                product.setcompanyid(rs.getInt("companyid"));
 	                product.setprice(rs.getFloat("price"));
