@@ -89,7 +89,7 @@ public class ClosingPeriodDAOImpl extends JdbcDaoSupport implements ClosingPerio
         	period = String.valueOf(currentyear-1)+"-"+String.valueOf(currentmonth+9);
         };
         if (currentmonth>3){
-        	period = String.valueOf(currentyear)+"-"+String.valueOf(currentmonth);
+        	period = String.valueOf(currentyear)+"-0"+String.valueOf(currentmonth);
         };
 	    String sql = "SELECT id, companyid, period, "
 	    		+ "opendate, closedate, closed "
