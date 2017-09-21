@@ -14,9 +14,15 @@ public interface OrderDAO {
      
     public void delete(int orderid);
 
-    public List<Order> getAll(int projectid);
-
     public Order get(int orderid);
+
+    public List<Order> list(int userid);
+    
+    public List<Order> listByTeam(int teamid);
+
+    public List<Order> listByBranch(int branchid);
+
+    public List<Order> listByCompany(int companyid);
 
     public boolean isExist(Order order);
 }

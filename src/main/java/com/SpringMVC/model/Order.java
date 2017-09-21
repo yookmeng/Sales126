@@ -1,8 +1,12 @@
 package com.SpringMVC.model;
 
+import java.sql.Date;
+
 public class Order {
     private int orderid;
+    private Date orderdate;
     private int projectid;
+    private String projectname;
     private int productid;
     private String productname;
     private int prodtype;
@@ -10,14 +14,19 @@ public class Order {
     private int quantity;
     private float price;
     private float amount;
+    private float hwdiscount;
+    private float swdiscount;
     
     public Order() {
     }
  
-    public Order(int orderid, int projectid, int productid, String productname, 
-    		int prodtype, String prodtypename, int quantity, float price, float amount) {
+    public Order(int orderid, Date orderdate, int projectid, String projectname, 
+    		int productid, String productname, int prodtype, String prodtypename, 
+    		int quantity, float price, float amount, float hwdiscount, float swdiscount) {
         this.orderid = orderid;
+        this.orderdate = orderdate;
         this.projectid = projectid;
+        this.projectname = projectname;
         this.productid = productid;
         this.productname = productname;
         this.prodtype = prodtype;
@@ -25,6 +34,8 @@ public class Order {
         this.quantity = quantity;
         this.price = price;
         this.amount = amount;
+        this.hwdiscount = hwdiscount;
+        this.swdiscount = swdiscount;
     }
  
     public int getorderid() {
@@ -34,11 +45,25 @@ public class Order {
         this.orderid = orderid;
     }
 
+    public Date getorderdate() {
+        return orderdate;
+    }  
+    public void setorderdate(Date orderdate) {
+        this.orderdate = orderdate;
+    }
+
     public int getprojectid() {
         return projectid;
     }  
     public void setprojectid(int projectid) {
         this.projectid = projectid;
+    }
+
+    public String getprojectname() {
+        return projectname;
+    }  
+    public void setprojectname(String projectname) {
+        this.projectname = projectname;
     }
 
     public int getproductid() {
@@ -88,5 +113,19 @@ public class Order {
     }  
     public void setamount(float amount) {
         this.amount = amount;
+    }
+
+    public float gethwdiscount() {
+        return hwdiscount;
+    }  
+    public void sethwdiscount(float hwdiscount) {
+        this.hwdiscount = hwdiscount;
+    }
+
+    public float getswdiscount() {
+        return swdiscount;
+    }  
+    public void setswdiscount(float swdiscount) {
+        this.swdiscount = swdiscount;
     }
 }

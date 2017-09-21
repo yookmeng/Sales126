@@ -14,9 +14,15 @@ public interface ProjectDAO {
      
     public void delete(int projectid);
 
-    public List<Project> getAll(int companyid);
-
     public Project get(int projectid);
+
+    public List<Project> list(int userid);
+    
+    public List<Project> listByTeam(int teamid);
+
+    public List<Project> listByBranch(int branchid);
+
+    public List<Project> listByCompany(int companyid);
 
     public boolean isExist(Project project);
 }

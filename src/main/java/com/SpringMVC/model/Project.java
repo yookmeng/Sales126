@@ -15,12 +15,11 @@ public class Project {
     private int propertyid;
     private String propertyname;
     private int units;
-    private int quotationid;
-    private float hardwarediscount;
-    private float softwarediscount;
     private boolean smsflag;
     private Date datecreated;
     private String forecastperiod;
+    private float hwdiscount;
+    private float swdiscount;
     private String status;
     private String statusname;
 
@@ -30,9 +29,8 @@ public class Project {
     public Project(int projectid, String projectname, Address address, int userid, 
     		String name, String mobile,  String email, 
     		int titleid, String titlename, int propertyid, String propertyname,
-    		int units, int quotationid, float hardwarediscount, float softwarediscount,
-    		boolean smsflag, Date datecreated, String forecastperiod,
-    		String status, String statusname) {
+    		int units, boolean smsflag, Date datecreated, String forecastperiod,
+    		float hwdiscount, float swdiscount, String status, String statusname) {
         this.projectid = projectid;
         this.projectname = projectname;
         this.address = address;
@@ -45,12 +43,11 @@ public class Project {
         this.propertyid = propertyid;
         this.propertyname = propertyname;
         this.units = units;
-        this.quotationid = quotationid;
-        this.hardwarediscount = hardwarediscount;
-        this.softwarediscount = softwarediscount;
         this.smsflag = smsflag;
         this.datecreated = datecreated;
         this.forecastperiod = forecastperiod;
+        this.hwdiscount = hwdiscount;
+        this.swdiscount = swdiscount;
         this.status = status;
         this.statusname = statusname;
     }
@@ -139,27 +136,6 @@ public class Project {
         this.units = units;
     }
 
-    public int getquotationid() {
-        return quotationid;
-    }
-    public void setquotationid(int quotationid) {
-        this.quotationid = quotationid;
-    }
-    
-    public float gethardwarediscount() {
-    	return hardwarediscount;
-    }
-    public void sethardwarediscount(float hardwarediscount){
-    	this.hardwarediscount = hardwarediscount;
-    }
-    
-    public float getsoftwarediscount() {
-    	return softwarediscount;
-    }
-    public void setsoftwarediscount(float softwarediscount){
-    	this.softwarediscount = softwarediscount;
-    }
-
     public boolean getsmsflag() {
         return smsflag;
     }
@@ -179,6 +155,20 @@ public class Project {
     }  
     public void setforecastperiod(String forecastperiod) {
         this.forecastperiod = forecastperiod;
+    }
+
+    public float gethwdiscount() {
+        return hwdiscount;
+    }  
+    public void sethwdiscount(float hwdiscount) {
+        this.hwdiscount = hwdiscount;
+    }
+
+    public float getswdiscount() {
+        return swdiscount;
+    }  
+    public void setswdiscount(float swdiscount) {
+        this.swdiscount = swdiscount;
     }
 
     public String getstatus() {

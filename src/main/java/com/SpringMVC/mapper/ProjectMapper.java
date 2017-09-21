@@ -29,18 +29,17 @@ public class ProjectMapper implements RowMapper<Project> {
         int propertyid = rs.getInt("propertyid");
         String propertyname = rs.getString("propertyname");
         int units = rs.getInt("units");
-        int quotationid = rs.getInt("quotationid");
-        float hardwarediscount = rs.getFloat("hardwarediscount");
-        float softwarediscount = rs.getFloat("softwarediscount");
         boolean smsflag = rs.getBoolean("smsflag");
         Date datecreated = rs.getDate("datecreated");
         String forecastperiod = rs.getString("forecastperiod");
+        float hwdiscount = rs.getFloat("hwdiscount");
+        float swdiscount = rs.getFloat("swdiscount");
         String status = rs.getString("status");
         String statusname = rs.getString("statusname");
         
         return new Project(projectid, projectname, address, userid, name, mobile, email, 
-        		titleid, titlename, propertyid, propertyname, units, quotationid, 
-        		hardwarediscount, softwarediscount, 
-        		smsflag, datecreated, forecastperiod, status, statusname);
+        		titleid, titlename, propertyid, propertyname, units, 
+        		smsflag, datecreated, forecastperiod, hwdiscount, swdiscount,
+        		status, statusname);
     } 
 }
