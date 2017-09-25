@@ -24,14 +24,17 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     }
 	
     public void save(Project project) {
+    	Address address = project.getaddress();
         // insert
-        String sql = "INSERT INTO tblProject (projectname, address, userid, "
+        String sql = "INSERT INTO tblProject (projectname, address.country, address.zipcode,"
+        		+ "address.state, address.city, address.street, userid, "
         		+ "name, mobile, email, titleid, "
         		+ "propertyid, units, smsflag, "
         		+ "datecreated, forecastperiod, hwdiscount, swdiscount, status) "
         		+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         this.getJdbcTemplate().update(sql, 
-        		project.getprojectname(), project.getaddress(), project.getuserid(), 
+        		project.getprojectname(), address.getcountry(), address.getzipcode(), 
+        		address.getstate(), address.getcity(), address.getstreet(), project.getuserid(), 
         		project.getname(), project.getmobile(), project.getemail(), project.gettitleid(), 
         		project.getpropertyid(), project.getunits(), project.getsmsflag(),
         		project.getdatecreated(), project.getforecastperiod(), 
@@ -39,14 +42,17 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     }
     
     public void update(Project project) {
+    	Address address = project.getaddress();
         // update
-        String sql = "UPDATE tblProject SET projectname=?, address=?, "
+        String sql = "UPDATE tblProject SET projectname=?, address.country=?, "
+        		+ "address.zipcode=?, address.state=?, address.city=?, address.street=?, "
         		+ "name=?, mobile=?, email=?, titleid=?, propertyid=?, "
         		+ "units=?, forecastperiod=?, hwdiscount=?, swdiscount=?, "
         		+ "status=? "
         		+ "WHERE projectid=?";
         this.getJdbcTemplate().update(sql, 
-        		project.getprojectname(), project.getaddress(), 
+        		project.getprojectname(), address.getcountry(), address.getzipcode(), 
+        		address.getstate(), address.getcity(), address.getstreet(), 
         		project.getname(), project.getmobile(), project.getemail(), 
         		project.gettitleid(), project.getpropertyid(), project.getunits(), 
         		project.getforecastperiod(), project.gethwdiscount(), project.getswdiscount(), 
