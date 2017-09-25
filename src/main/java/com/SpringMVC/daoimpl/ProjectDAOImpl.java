@@ -65,7 +65,8 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     }
     
     public Project get(int projectid) {
-        String sql = "SELECT proj.projectid, proj.projectname, proj.address, "
+        String sql = "SELECT proj.projectid, proj.projectname, (proj.address).country, "
+        		+ "(proj.address).zipcode, (proj.address).state, (proj.address).city, (proj.address).street, "
         		+ "proj.userid, usr.username, proj.name, proj.mobile, proj.email, "
         		+ "proj.titleid, title.codename AS titlename, "
         		+ "proj.propertyid, property.codename AS propertyname, "
@@ -88,11 +89,11 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
 	            	project.setprojectid(rs.getInt("projectid"));
 	            	project.setprojectname(rs.getString("projectname"));
 	                Address address = new Address();
-	                address.setcountry(rs.getString("address.country"));
-	                address.setzipcode(rs.getString("address.zipcode"));
-	                address.setstate(rs.getString("address.state"));
-	                address.setcity(rs.getString("address.city"));
-	                address.setstreet(rs.getString("address.street"));
+	                address.setcountry(rs.getString("country"));
+	                address.setzipcode(rs.getString("zipcode"));
+	                address.setstate(rs.getString("state"));
+	                address.setcity(rs.getString("city"));
+	                address.setstreet(rs.getString("street"));
 	                project.setaddress(address);
 	            	project.setuserid(rs.getInt("userid"));
 	            	project.setusername(rs.getString("username"));
@@ -119,8 +120,8 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     }
 
     public List<Project> list(int userid) {
-        String sql = "SELECT proj.projectid, proj.projectname, proj.address.country, "
-        		+ "proj.address.zipcode, proj.address.state, proj.address.city, proj.address.street, "
+        String sql = "SELECT proj.projectid, proj.projectname, (proj.address).country, "
+        		+ "(proj.address).zipcode, (proj.address).state, (proj.address).city, (proj.address).street, "
         		+ "proj.userid, usr.username, proj.name, proj.mobile, proj.email, "
         		+ "proj.titleid, title.codename AS titlename, "
         		+ "proj.propertyid, property.codename AS propertyname, "
@@ -140,8 +141,8 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     }
     
     public List<Project> listByTeam(int teamid) {
-        String sql = "SELECT proj.projectid, proj.projectname, proj.address.country, "
-        		+ "proj.address.zipcode, proj.address.state, proj.address.city, proj.address.street, "
+        String sql = "SELECT proj.projectid, proj.projectname, (proj.address).country, "
+        		+ "(proj.address).zipcode, (proj.address).state, (proj.address).city, (proj.address).street, "
         		+ "proj.userid, usr.username, proj.name, proj.mobile, proj.email, "
         		+ "proj.titleid, title.codename AS titlename, "
         		+ "proj.propertyid, property.codename AS propertyname, "
@@ -161,8 +162,8 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     }
 
     public List<Project> listByBranch(int branchid) {
-        String sql = "SELECT proj.projectid, proj.projectname, proj.address.country, "
-        		+ "proj.address.zipcode, proj.address.state, proj.address.city, proj.address.street, "
+        String sql = "SELECT proj.projectid, proj.projectname, (proj.address).country, "
+        		+ "(proj.address).zipcode, (proj.address).state, (proj.address).city, (proj.address).street, "
         		+ "proj.userid, usr.username, proj.name, proj.mobile, proj.email, "
         		+ "proj.titleid, title.codename AS titlename, "
         		+ "proj.propertyid, property.codename AS propertyname, "
@@ -182,8 +183,8 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     }
 
     public List<Project> listByCompany(int companyid) {
-        String sql = "SELECT proj.projectid, proj.projectname, proj.address.country, "
-        		+ "proj.address.zipcode, proj.address.state, proj.address.city, proj.address.street, "
+        String sql = "SELECT proj.projectid, proj.projectname, (proj.address).country, "
+        		+ "(proj.address).zipcode, (proj.address).state, (proj.address).city, (proj.address).street, "
         		+ "proj.userid, usr.username, proj.name, proj.mobile, proj.email, "
         		+ "proj.titleid, title.codename AS titlename, "
         		+ "proj.propertyid, property.codename AS propertyname, "
