@@ -26,12 +26,12 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     public void save(Project project) {
     	Address address = project.getaddress();
         // insert
-        String sql = "INSERT INTO tblProject (projectname, address.country, address.zipcode,"
+        String sql = "INSERT INTO tblProject (projectname, address.country, address.zipcode, "
         		+ "address.state, address.city, address.street, userid, "
         		+ "name, mobile, email, titleid, "
         		+ "propertyid, units, smsflag, "
         		+ "datecreated, forecastperiod, hwdiscount, swdiscount, status) "
-        		+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        		+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         this.getJdbcTemplate().update(sql, 
         		project.getprojectname(), address.getcountry(), address.getzipcode(), 
         		address.getstate(), address.getcity(), address.getstreet(), project.getuserid(), 
