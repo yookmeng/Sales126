@@ -31,7 +31,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
         		+ "name, mobile, email, titleid, "
         		+ "propertyid, units, smsflag, "
         		+ "datecreated, forecastperiod, hwdiscount, swdiscount, status) "
-        		+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        		+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         this.getJdbcTemplate().update(sql, 
         		project.getprojectname(), address.getcountry(), address.getzipcode(), 
         		address.getstate(), address.getcity(), address.getstreet(), project.getuserid(), 
