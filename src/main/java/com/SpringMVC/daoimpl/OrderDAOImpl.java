@@ -68,7 +68,7 @@ public class OrderDAOImpl extends JdbcDaoSupport implements OrderDAO {
 	                order.setprojectname(rs.getString("projectname"));
 	                order.setproductid(rs.getInt("productid"));
 	                order.setproductname(rs.getString("productname"));
-	                order.setprodtype(rs.getInt("prodtype"));
+	                order.setprodtype(rs.getString("prodtype"));
 	                order.setprodtypename(rs.getString("prodtypename"));
 	                order.setquantity(rs.getInt("quantity"));
 	                order.setprice(rs.getFloat("price"));
@@ -91,8 +91,8 @@ public class OrderDAOImpl extends JdbcDaoSupport implements OrderDAO {
         		+ "LEFT JOIN tblProject proj ON proj.projectid = ord.projectid "
         		+ "LEFT JOIN tblProduct prod ON prod.productid = ord.productid "        		
         		+ "LEFT JOIN tblCodeMaster code ON code.codetype = 'PRODUCT' AND code.codeid = prod.prodtype "        		
-        		+ "LEFT JOIN tblUser user ON user.userid = proj.userid "
-        		+ "WHERE user.userid = " + userid + " "
+        		+ "LEFT JOIN tblUser usr ON usr.userid = proj.userid "
+        		+ "WHERE usr.userid = " + userid + " "
         		+ "ORDER BY proj.projectname";
         OrderMapper mapper = new OrderMapper();
         List<Order> list = this.getJdbcTemplate().query(sql, mapper);
@@ -108,8 +108,8 @@ public class OrderDAOImpl extends JdbcDaoSupport implements OrderDAO {
         		+ "LEFT JOIN tblProject proj ON proj.projectid = ord.projectid "
         		+ "LEFT JOIN tblProduct prod ON prod.productid = ord.productid "        		
         		+ "LEFT JOIN tblCodeMaster code ON code.codetype = 'PRODUCT' AND code.codeid = prod.prodtype "        		
-        		+ "LEFT JOIN tblUser user ON user.userid = proj.userid "
-        		+ "WHERE user.teamid = " + teamid + " "
+        		+ "LEFT JOIN tblUser usr ON usr.userid = proj.userid "
+        		+ "WHERE usr.teamid = " + teamid + " "
         		+ "ORDER BY proj.projectname";
         OrderMapper mapper = new OrderMapper();
         List<Order> list = this.getJdbcTemplate().query(sql, mapper);
@@ -125,8 +125,8 @@ public class OrderDAOImpl extends JdbcDaoSupport implements OrderDAO {
         		+ "LEFT JOIN tblProject proj ON proj.projectid = ord.projectid "
         		+ "LEFT JOIN tblProduct prod ON prod.productid = ord.productid "        		
         		+ "LEFT JOIN tblCodeMaster code ON code.codetype = 'PRODUCT' AND code.codeid = prod.prodtype "        		
-        		+ "LEFT JOIN tblUser user ON user.userid = proj.userid "
-        		+ "WHERE user.branchid = " + branchid + " "
+        		+ "LEFT JOIN tblUsr user ON usr.userid = proj.userid "
+        		+ "WHERE usr.branchid = " + branchid + " "
         		+ "ORDER BY proj.projectname";
         OrderMapper mapper = new OrderMapper();
         List<Order> list = this.getJdbcTemplate().query(sql, mapper);
@@ -142,8 +142,8 @@ public class OrderDAOImpl extends JdbcDaoSupport implements OrderDAO {
         		+ "LEFT JOIN tblProject proj ON proj.projectid = ord.projectid "
         		+ "LEFT JOIN tblProduct prod ON prod.productid = ord.productid "        		
         		+ "LEFT JOIN tblCodeMaster code ON code.codetype = 'PRODUCT' AND code.codeid = prod.prodtype "        		
-        		+ "LEFT JOIN tblUser user ON user.userid = proj.userid "
-        		+ "WHERE user.companyid = " + companyid + " "
+        		+ "LEFT JOIN tblUser usr ON usr.userid = proj.userid "
+        		+ "WHERE usr.companyid = " + companyid + " "
         		+ "ORDER BY proj.projectname";
         OrderMapper mapper = new OrderMapper();
         List<Order> list = this.getJdbcTemplate().query(sql, mapper);

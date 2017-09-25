@@ -21,12 +21,13 @@ public class ProjectMapper implements RowMapper<Project> {
         address.setcity(rs.getString("city"));
         address.setstreet(rs.getString("street"));
         int userid = rs.getInt("userid");
+        String username = rs.getString("username");
         String name = rs.getString("name");
         String mobile = rs.getString("mobile");
         String email = rs.getString("email");
-        int titleid = rs.getInt("titleid");
+        String titleid = rs.getString("titleid");
         String titlename = rs.getString("titlename");
-        int propertyid = rs.getInt("propertyid");
+        String propertyid = rs.getString("propertyid");
         String propertyname = rs.getString("propertyname");
         int units = rs.getInt("units");
         boolean smsflag = rs.getBoolean("smsflag");
@@ -37,7 +38,7 @@ public class ProjectMapper implements RowMapper<Project> {
         String status = rs.getString("status");
         String statusname = rs.getString("statusname");
         
-        return new Project(projectid, projectname, address, userid, name, mobile, email, 
+        return new Project(projectid, projectname, address, userid, username, name, mobile, email, 
         		titleid, titlename, propertyid, propertyname, units, 
         		smsflag, datecreated, forecastperiod, hwdiscount, swdiscount,
         		status, statusname);

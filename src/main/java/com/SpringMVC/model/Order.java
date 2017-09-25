@@ -9,7 +9,7 @@ public class Order {
     private String projectname;
     private int productid;
     private String productname;
-    private int prodtype;
+    private String prodtype;
     private String prodtypename;
     private int quantity;
     private float price;
@@ -21,7 +21,7 @@ public class Order {
     }
  
     public Order(int orderid, Date orderdate, int projectid, String projectname, 
-    		int productid, String productname, int prodtype, String prodtypename, 
+    		int productid, String productname, String prodtype, String prodtypename, 
     		int quantity, float price, float amount, float hwdiscount, float swdiscount) {
         this.orderid = orderid;
         this.orderdate = orderdate;
@@ -80,10 +80,10 @@ public class Order {
         this.productname = productname;
     }
 
-    public int getprodtype() {
+    public String getprodtype() {
         return prodtype;
     }  
-    public void setprodtype(int prodtype) {
+    public void setprodtype(String prodtype) {
         this.prodtype = prodtype;
     }
 

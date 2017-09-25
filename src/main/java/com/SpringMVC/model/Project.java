@@ -7,12 +7,13 @@ public class Project {
     private String projectname;
     private Address address;
     private int userid;
+    private String username;
     private String name;
     private String mobile;
     private String email;
-    private int titleid;
+    private String titleid;
     private String titlename;
-    private int propertyid;
+    private String propertyid;
     private String propertyname;
     private int units;
     private boolean smsflag;
@@ -27,14 +28,15 @@ public class Project {
     }
  
     public Project(int projectid, String projectname, Address address, int userid, 
-    		String name, String mobile,  String email, 
-    		int titleid, String titlename, int propertyid, String propertyname,
+    		String username, String name, String mobile,  String email, 
+    		String titleid, String titlename, String propertyid, String propertyname,
     		int units, boolean smsflag, Date datecreated, String forecastperiod,
     		float hwdiscount, float swdiscount, String status, String statusname) {
         this.projectid = projectid;
         this.projectname = projectname;
         this.address = address;
         this.userid = userid;
+        this.username = username;
         this.name = name;
         this.mobile = mobile;
         this.email = email;
@@ -80,6 +82,13 @@ public class Project {
         this.userid = userid;
     }
 
+    public String getusername() {
+        return username;
+    }
+    public void setusername(String username) {
+        this.username = username;
+    }
+
     public String getname() {
         return name;
     }
@@ -101,10 +110,10 @@ public class Project {
         this.email = email;
     }    
 
-    public int gettitleid() {
+    public String gettitleid() {
         return titleid;
     }
-    public void settitleid(int titleid) {
+    public void settitleid(String titleid) {
         this.titleid = titleid;
     }
     
@@ -115,10 +124,10 @@ public class Project {
         this.titlename = titlename;
     }
 
-    public int getpropertyid() {
+    public String getpropertyid() {
         return propertyid;
     }
-    public void setpropertyid(int propertyid) {
+    public void setpropertyid(String propertyid) {
         this.propertyid = propertyid;
     }
     

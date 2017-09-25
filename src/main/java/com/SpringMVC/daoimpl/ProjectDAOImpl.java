@@ -66,7 +66,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     
     public Project get(int projectid) {
         String sql = "SELECT proj.projectid, proj.projectname, proj.address, "
-        		+ "proj.userid, proj.name, proj.mobile, proj.email, "
+        		+ "proj.userid, usr.username, proj.name, proj.mobile, proj.email, "
         		+ "proj.titleid, title.codename AS titlename, "
         		+ "proj.propertyid, property.codename AS propertyname, "
         		+ "proj.units, proj.smsflag, proj.datecreated, proj.forecastperiod, "
@@ -76,6 +76,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
         		+ "LEFT JOIN tblCodeMaster title ON title.codetype = 'TITLE' AND title.codeid = proj.titleid "        		
         		+ "LEFT JOIN tblCodeMaster property ON property.codetype = 'PROPERTY' AND property.codeid = proj.propertyid "        		
         		+ "LEFT JOIN tblCodeMaster status ON status.codetype = 'STATUS' AND status.codeid = proj.status "        		
+        		+ "LEFT JOIN tblUser usr ON usr.userid = proj.userid "
         		+ "WHERE proj.projectid = " + projectid;
 	    return this.getJdbcTemplate().query(sql, new ResultSetExtractor<Project>() {
 	 
@@ -94,12 +95,13 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
 	                address.setstreet(rs.getString("address.street"));
 	                project.setaddress(address);
 	            	project.setuserid(rs.getInt("userid"));
+	            	project.setusername(rs.getString("username"));
 	            	project.setname(rs.getString("name"));
 	            	project.setmobile(rs.getString("mobile"));
 	            	project.setemail(rs.getString("email"));
-	                project.settitleid(rs.getInt("titleid"));
+	                project.settitleid(rs.getString("titleid"));
 	            	project.settitlename(rs.getString("titlename"));
-	                project.setpropertyid(rs.getInt("propertyid"));
+	                project.setpropertyid(rs.getString("propertyid"));
 	            	project.setpropertyname(rs.getString("propertyname"));
 	                project.setunits(rs.getInt("units"));
 	                project.setsmsflag(rs.getBoolean("smsflag"));
@@ -118,7 +120,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
 
     public List<Project> list(int userid) {
         String sql = "SELECT proj.projectid, proj.projectname, proj.address, "
-        		+ "proj.userid, proj.name, proj.mobile, proj.email, "
+        		+ "proj.userid, usr.username, proj.name, proj.mobile, proj.email, "
         		+ "proj.titleid, title.codename AS titlename, "
         		+ "proj.propertyid, property.codename AS propertyname, "
         		+ "proj.units, proj.smsflag, proj.datecreated, proj.forecastperiod, "
@@ -128,8 +130,8 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
         		+ "LEFT JOIN tblCodeMaster title ON title.codetype = 'TITLE' AND title.codeid = proj.titleid "        		
         		+ "LEFT JOIN tblCodeMaster property ON property.codetype = 'PROPERTY' AND property.codeid = proj.propertyid "        		
         		+ "LEFT JOIN tblCodeMaster status ON status.codetype = 'STATUS' AND status.codeid = proj.status "        		
-        		+ "LEFT JOIN tblUser user ON user.userid = proj.userid "
-        		+ "WHERE user.userid = " + userid + " "
+        		+ "LEFT JOIN tblUser usr ON usr.userid = proj.userid "
+        		+ "WHERE usr.userid = " + userid + " "
         		+ "ORDER BY projectname";
         ProjectMapper mapper = new ProjectMapper();
         List<Project> list = this.getJdbcTemplate().query(sql, mapper);
@@ -138,7 +140,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     
     public List<Project> listByTeam(int teamid) {
         String sql = "SELECT proj.projectid, proj.projectname, proj.address, "
-        		+ "proj.userid, proj.name, proj.mobile, proj.email, "
+        		+ "proj.userid, usr.username, proj.name, proj.mobile, proj.email, "
         		+ "proj.titleid, title.codename AS titlename, "
         		+ "proj.propertyid, property.codename AS propertyname, "
         		+ "proj.units, proj.smsflag, proj.datecreated, proj.forecastperiod, "
@@ -148,8 +150,8 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
         		+ "LEFT JOIN tblCodeMaster title ON title.codetype = 'TITLE' AND title.codeid = proj.titleid "        		
         		+ "LEFT JOIN tblCodeMaster property ON property.codetype = 'PROPERTY' AND property.codeid = proj.propertyid "        		
         		+ "LEFT JOIN tblCodeMaster status ON status.codetype = 'STATUS' AND status.codeid = proj.status "        		
-        		+ "LEFT JOIN tblUser user ON user.userid = proj.userid "
-        		+ "WHERE user.teamid = " + teamid + " "
+        		+ "LEFT JOIN tblUser usr ON usr.userid = proj.userid "
+        		+ "WHERE usr.teamid = " + teamid + " "
         		+ "ORDER BY projectname";
         ProjectMapper mapper = new ProjectMapper();
         List<Project> list = this.getJdbcTemplate().query(sql, mapper);
@@ -158,7 +160,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
 
     public List<Project> listByBranch(int branchid) {
         String sql = "SELECT proj.projectid, proj.projectname, proj.address, "
-        		+ "proj.userid, proj.name, proj.mobile, proj.email, "
+        		+ "proj.userid, usr.username, proj.name, proj.mobile, proj.email, "
         		+ "proj.titleid, title.codename AS titlename, "
         		+ "proj.propertyid, property.codename AS propertyname, "
         		+ "proj.units, proj.smsflag, proj.datecreated, proj.forecastperiod, "
@@ -168,8 +170,8 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
         		+ "LEFT JOIN tblCodeMaster title ON title.codetype = 'TITLE' AND title.codeid = proj.titleid "        		
         		+ "LEFT JOIN tblCodeMaster property ON property.codetype = 'PROPERTY' AND property.codeid = proj.propertyid "        		
         		+ "LEFT JOIN tblCodeMaster status ON status.codetype = 'STATUS' AND status.codeid = proj.status "        		
-        		+ "LEFT JOIN tblUser user ON user.userid = proj.userid "
-        		+ "WHERE user.branchid = " + branchid + " "
+        		+ "LEFT JOIN tblUser usr ON usr.userid = proj.userid "
+        		+ "WHERE usr.branchid = " + branchid + " "
         		+ "ORDER BY projectname";
         ProjectMapper mapper = new ProjectMapper();
         List<Project> list = this.getJdbcTemplate().query(sql, mapper);
@@ -178,7 +180,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
 
     public List<Project> listByCompany(int companyid) {
         String sql = "SELECT proj.projectid, proj.projectname, proj.address, "
-        		+ "proj.userid, proj.name, proj.mobile, proj.email, "
+        		+ "proj.userid, usr.username, proj.name, proj.mobile, proj.email, "
         		+ "proj.titleid, title.codename AS titlename, "
         		+ "proj.propertyid, property.codename AS propertyname, "
         		+ "proj.units, proj.smsflag, proj.datecreated, proj.forecastperiod, "
@@ -188,8 +190,8 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
         		+ "LEFT JOIN tblCodeMaster title ON title.codetype = 'TITLE' AND title.codeid = proj.titleid "        		
         		+ "LEFT JOIN tblCodeMaster property ON property.codetype = 'PROPERTY' AND property.codeid = proj.propertyid "        		
         		+ "LEFT JOIN tblCodeMaster status ON status.codetype = 'STATUS' AND status.codeid = proj.status "        		
-        		+ "LEFT JOIN tblUser user ON user.userid = proj.userid "
-        		+ "WHERE user.companyid = " + companyid + " "
+        		+ "LEFT JOIN tblUser usr ON usr.userid = proj.userid "
+        		+ "WHERE usr.companyid = " + companyid + " "
         		+ "ORDER BY projectname";
         ProjectMapper mapper = new ProjectMapper();
         List<Project> list = this.getJdbcTemplate().query(sql, mapper);

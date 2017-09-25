@@ -17,7 +17,7 @@ public class OrderMapper implements RowMapper<Order> {
         String projectname = rs.getString("projectname");
         int productid = rs.getInt("productid");
         String productname = rs.getString("productname");
-        int prodtype = rs.getInt("prodtype");
+        String prodtype = rs.getString("prodtype");
         String prodtypename = rs.getString("prodtypename");
         int quantity = rs.getInt("quantity");
         float price = rs.getFloat("price");
