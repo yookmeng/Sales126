@@ -24,20 +24,20 @@ public class OrderDAOImpl extends JdbcDaoSupport implements OrderDAO {
 	
     public void save(Order order) {
         // insert
-        String sql = "INSERT INTO tblOrder (projectid, productid, quantity, price, amount) "
-        		+ "VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO tblOrder (orderdate, projectid, productid, quantity, price, amount) "
+        		+ "VALUES (?, ?, ?, ?, ?, ?)";
         this.getJdbcTemplate().update(sql, 
-        		order.getprojectid(), order.getproductid(), order.getquantity(), 
-        		order.getprice(), order.getamount());
+        		order.getorderdate(), order.getprojectid(), order.getproductid(), 
+        		order.getquantity(), order.getprice(), order.getamount());
     }
     
     public void update(Order order) {
         // update
-        String sql = "UPDATE tblOrder SET productid=?, quantity=?, price=?, amount=? "
+        String sql = "UPDATE tblOrder SET orderdate=?, productid=?, quantity=?, price=?, amount=? "
         		+ "WHERE orderid=?";
         this.getJdbcTemplate().update(sql, 
-        		order.getproductid(), order.getquantity(), order.getprice(), order.getamount(), 
-        		order.getorderid());
+        		order.getorderdate(), order.getproductid(), order.getquantity(), 
+        		order.getprice(), order.getamount(), order.getorderid());
     }
 
     public void delete(int orderid) {

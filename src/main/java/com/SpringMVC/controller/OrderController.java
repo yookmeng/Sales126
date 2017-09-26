@@ -90,6 +90,8 @@ public class OrderController {
             return new ResponseEntity<Order>(order, HttpStatus.NOT_FOUND);
         }
         
+        currentOrder.setorderdate(order.getorderdate());
+        currentOrder.setproductid(order.getproductid());
         currentOrder.setquantity(order.getquantity());
         currentOrder.setprice(order.getprice());
         currentOrder.setamount(order.getamount());
