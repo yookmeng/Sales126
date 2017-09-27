@@ -23,6 +23,7 @@ public class Project {
     private float swdiscount;
     private String status;
     private String statusname;
+    private String pdflink;
 
     public Project() {
     }
@@ -31,7 +32,8 @@ public class Project {
     		String username, String name, String mobile,  String email, 
     		String titleid, String titlename, String propertyid, String propertyname,
     		int units, boolean smsflag, Date datecreated, String forecastperiod,
-    		float hwdiscount, float swdiscount, String status, String statusname) {
+    		float hwdiscount, float swdiscount, String status, String statusname,
+    		String pdflink) {
         this.projectid = projectid;
         this.projectname = projectname;
         this.address = address;
@@ -52,6 +54,7 @@ public class Project {
         this.swdiscount = swdiscount;
         this.status = status;
         this.statusname = statusname;
+        this.pdflink = pdflink;
     }
  
     public int getprojectid() {
@@ -192,5 +195,12 @@ public class Project {
     }  
     public void setstatusname(String statusname) {
         this.statusname = statusname;
+    }
+
+    public String getpdflink() {
+        return pdflink;
+    }  
+    public void setpdflink(String pdflink) {
+        this.pdflink = pdflink;
     }
 }

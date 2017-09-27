@@ -2,9 +2,12 @@ package com.SpringMVC.dao;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Repository;
 
 import com.SpringMVC.model.Project;
+
 @Repository 
 public interface ProjectDAO {
      
@@ -13,6 +16,8 @@ public interface ProjectDAO {
     public void update(Project project);
      
     public void delete(int projectid);
+    
+    public void createpdf(Project project, HttpServletRequest request);
 
     public Project get(int projectid);
 

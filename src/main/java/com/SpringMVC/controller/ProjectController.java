@@ -2,6 +2,8 @@ package com.SpringMVC.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -98,7 +100,7 @@ public class ProjectController {
     }
 
     @RequestMapping(value = ProjectRestURIConstant.Update, method = RequestMethod.POST)
-    public ResponseEntity<Project> updateProject(@RequestBody Project project) {
+    public ResponseEntity<Project> updateProject(@RequestBody Project project, HttpServletRequest request) {
     	Project currentProject = projectDAO.get(project.getprojectid());
          
         if (currentProject==null) {
@@ -120,6 +122,7 @@ public class ProjectController {
         currentProject.setswdiscount(project.getswdiscount());
 
         projectDAO.update(currentProject);
+        projectDAO.createpdf(currentProject, request);        
         return new ResponseEntity<Project>(project, HttpStatus.OK);
     }
 

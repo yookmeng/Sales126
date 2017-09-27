@@ -37,10 +37,11 @@ public class ProjectMapper implements RowMapper<Project> {
         float swdiscount = rs.getFloat("swdiscount");
         String status = rs.getString("status");
         String statusname = rs.getString("statusname");
+        String pdflink = rs.getString("pdflink");
         
         return new Project(projectid, projectname, address, userid, username, name, mobile, email, 
         		titleid, titlename, propertyid, propertyname, units, 
         		smsflag, datecreated, forecastperiod, hwdiscount, swdiscount,
-        		status, statusname);
+        		status, statusname, pdflink);
     } 
 }
