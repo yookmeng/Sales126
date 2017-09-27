@@ -198,7 +198,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
         		+ "proj.propertyid, property.codename AS propertyname, "
         		+ "proj.units, proj.smsflag, proj.datecreated, proj.forecastperiod, "
         		+ "proj.hwdiscount, proj.swdiscount, "
-        		+ "proj.status, status.codename AS statusname "
+        		+ "proj.status, status.codename AS statusname, proj.pdflink "
         		+ "FROM tblProject proj "
         		+ "LEFT JOIN tblCodeMaster title ON title.codetype = 'TITLE' AND title.codeid = proj.titleid "        		
         		+ "LEFT JOIN tblCodeMaster property ON property.codetype = 'PROPERTY' AND property.codeid = proj.propertyid "        		
@@ -237,7 +237,8 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
 	            	project.sethwdiscount(rs.getFloat("hwdiscount"));
 	            	project.setswdiscount(rs.getFloat("swdiscount"));
 	            	project.setstatus(rs.getString("status"));
-	            	project.setstatusname(rs.getString("statusname"));	                
+	            	project.setstatusname(rs.getString("statusname"));
+	            	project.setpdflink(rs.getString("pdflink"));
 	                return project;
 	            }	 
 	            return null;
@@ -253,7 +254,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
         		+ "proj.propertyid, property.codename AS propertyname, "
         		+ "proj.units, proj.smsflag, proj.datecreated, proj.forecastperiod, "
         		+ "proj.hwdiscount, proj.swdiscount, "
-        		+ "proj.status, status.codename AS statusname "
+        		+ "proj.status, status.codename AS statusname, proj.pdflink "
         		+ "FROM tblProject proj "
         		+ "LEFT JOIN tblCodeMaster title ON title.codetype = 'TITLE' AND title.codeid = proj.titleid "        		
         		+ "LEFT JOIN tblCodeMaster property ON property.codetype = 'PROPERTY' AND property.codeid = proj.propertyid "        		
@@ -274,7 +275,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
         		+ "proj.propertyid, property.codename AS propertyname, "
         		+ "proj.units, proj.smsflag, proj.datecreated, proj.forecastperiod, "
         		+ "proj.hwdiscount, proj.swdiscount, "
-        		+ "proj.status, status.codename AS statusname "
+        		+ "proj.status, status.codename AS statusname, proj.pdflink "
         		+ "FROM tblProject proj "
         		+ "LEFT JOIN tblCodeMaster title ON title.codetype = 'TITLE' AND title.codeid = proj.titleid "        		
         		+ "LEFT JOIN tblCodeMaster property ON property.codetype = 'PROPERTY' AND property.codeid = proj.propertyid "        		
@@ -295,7 +296,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
         		+ "proj.propertyid, property.codename AS propertyname, "
         		+ "proj.units, proj.smsflag, proj.datecreated, proj.forecastperiod, "
         		+ "proj.hwdiscount, proj.swdiscount, "
-        		+ "proj.status, status.codename AS statusname "
+        		+ "proj.status, status.codename AS statusname, proj.pdflink "
         		+ "FROM tblProject proj "
         		+ "LEFT JOIN tblCodeMaster title ON title.codetype = 'TITLE' AND title.codeid = proj.titleid "        		
         		+ "LEFT JOIN tblCodeMaster property ON property.codetype = 'PROPERTY' AND property.codeid = proj.propertyid "        		
@@ -316,7 +317,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
         		+ "proj.propertyid, property.codename AS propertyname, "
         		+ "proj.units, proj.smsflag, proj.datecreated, proj.forecastperiod, "
         		+ "proj.hwdiscount, proj.swdiscount, "
-        		+ "proj.status, status.codename AS statusname "
+        		+ "proj.status, status.codename AS statusname, proj.pdflink "
         		+ "FROM tblProject proj "
         		+ "LEFT JOIN tblCodeMaster title ON title.codetype = 'TITLE' AND title.codeid = proj.titleid "        		
         		+ "LEFT JOIN tblCodeMaster property ON property.codetype = 'PROPERTY' AND property.codeid = proj.propertyid "        		
