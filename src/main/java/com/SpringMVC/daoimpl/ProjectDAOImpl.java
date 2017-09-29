@@ -108,7 +108,7 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     	String pdfPath = "/pdf";
     	String absolutePDFPath = request.getSession().getServletContext().getRealPath(pdfPath);
     	File PDFfile = new File(absolutePDFPath, filename);
-    	BaseFont baseFont;
+    	BaseFont baseFont = null;
     	Font TitleFont = null;
     	Font BodyHeaderFont = null;    	
     	Font BodyHeaderFontWhite = null;    	
@@ -119,18 +119,18 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     	Font FooterFontItalic = null;
     	try {
 			baseFont = BaseFont.createFont(base+"/font/micross.ttf", BaseFont.WINANSI, BaseFont.EMBEDDED);
-	    	TitleFont = new Font(baseFont, 36, Font.BOLD);
-	    	BodyHeaderFont = new Font(baseFont, 10, Font.BOLD);
-	    	BodyHeaderFontWhite = new Font(baseFont, 10, Font.BOLD, BaseColor.WHITE);
-	    	BodyFont = new Font(baseFont, 10);
-	    	FooterHeaderFont = new Font(baseFont, 8, Font.BOLD);
-	    	FooterFont = new Font(baseFont, 8);
-	    	FooterSmallFont = new Font(baseFont, 6);
-	    	FooterFontItalic = new Font(baseFont, 8, Font.ITALIC);
 		} catch (DocumentException | IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+    	TitleFont = new Font(baseFont, 36, Font.BOLD);
+    	BodyHeaderFont = new Font(baseFont, 10, Font.BOLD);
+    	BodyHeaderFontWhite = new Font(baseFont, 10, Font.BOLD, BaseColor.WHITE);
+    	BodyFont = new Font(baseFont, 10);
+    	FooterHeaderFont = new Font(baseFont, 8, Font.BOLD);
+    	FooterFont = new Font(baseFont, 8);
+    	FooterSmallFont = new Font(baseFont, 6);
+    	FooterFontItalic = new Font(baseFont, 8, Font.ITALIC);
     	Document document = new Document();
         try
         {        	
