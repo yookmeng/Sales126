@@ -119,7 +119,9 @@ public class ProjectDAOImpl extends JdbcDaoSupport implements ProjectDAO {
     	Font FooterFontItalic = null;
     	try {
 			baseFont = BaseFont.createFont(base+"/font/micross.ttf", BaseFont.WINANSI, BaseFont.EMBEDDED);
-		} catch (DocumentException | IOException e1) {
+		} 
+    	catch (DocumentException e) {}
+    	catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
