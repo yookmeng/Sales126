@@ -29,8 +29,8 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan("com.SpringMVC.*")
 @EnableTransactionManagement
 // Load to Environment.
-@PropertySource("classpath:datasource-cfg.postgres.heroku")
-//@PropertySource("classpath:datasource-cfg.postgres.local")
+//@PropertySource("classpath:datasource-cfg.postgres.heroku")
+@PropertySource("classpath:datasource-cfg.postgres.local")
 public class ApplicationContextConfig {
  
   // The Environment class serves as the property holder

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Repository;
 
+import com.SpringMVC.model.Order;
 import com.SpringMVC.model.Project;
 
 @Repository 
@@ -17,7 +18,7 @@ public interface ProjectDAO {
      
     public void delete(int projectid);
     
-    public void createpdf(Project project, HttpServletRequest request);
+    public void createpdf(Project project, List<Order> listOrder, HttpServletRequest request);
 
     public Project get(int projectid);
 

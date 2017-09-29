@@ -16,6 +16,8 @@ public interface OrderDAO {
 
     public Order get(int orderid);
 
+    public List<Order> listByProject(int projectid);
+
     public List<Order> list(int userid);
     
     public List<Order> listByTeam(int teamid);

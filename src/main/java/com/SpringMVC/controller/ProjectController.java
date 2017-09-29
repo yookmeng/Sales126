@@ -1,6 +1,7 @@
 package com.SpringMVC.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,9 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.SpringMVC.dao.ProjectDAO;
+import com.SpringMVC.dao.OrderDAO;
 import com.SpringMVC.dao.SMSLogDAO;
 import com.SpringMVC.dao.UserLoginDAO;
 import com.SpringMVC.model.IonicUser;
+import com.SpringMVC.model.Order;
 import com.SpringMVC.model.Project;
 import com.SpringMVC.model.UserLogin;
 import com.SpringMVC.uriconstant.ProjectRestURIConstant;
@@ -33,6 +36,9 @@ public class ProjectController {
 
     @Autowired
     private ProjectDAO projectDAO;
+
+    @Autowired
+    private OrderDAO orderDAO;
 
     @Autowired
     private SMSLogDAO smsLogDAO;
@@ -122,7 +128,9 @@ public class ProjectController {
         currentProject.setswdiscount(project.getswdiscount());
 
         projectDAO.update(currentProject);
-        projectDAO.createpdf(currentProject, request);        
+ 	    List<Order> listOrder = orderDAO.listByProject(currentProject.getprojectid());
+        
+        projectDAO.createpdf(currentProject, listOrder, request);        
         return new ResponseEntity<Project>(project, HttpStatus.OK);
     }
 

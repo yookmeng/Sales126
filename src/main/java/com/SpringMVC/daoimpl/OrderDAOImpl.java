@@ -49,6 +49,8 @@ public class OrderDAOImpl extends JdbcDaoSupport implements OrderDAO {
         String sql = "SELECT ord.orderid, ord.orderdate, ord.projectid, proj.projectname, "
         		+ "ord.productid, prod.productname, "
         		+ "prod.prodtype, code.codename AS prodtypename, "
+        		+ "prod.desc01, prod.desc02, prod.desc03, prod.desc04, prod.desc05, "
+        		+ "prod.desc06, prod.desc07, prod.desc08, prod.desc09, prod.desc10, "        		
         		+ "ord.quantity, ord.price, ord.amount, proj.hwdiscount, proj.swdiscount "
         		+ "FROM tblOrder ord "
         		+ "LEFT JOIN tblProject proj ON proj.projectid = ord.projectid "
@@ -70,6 +72,16 @@ public class OrderDAOImpl extends JdbcDaoSupport implements OrderDAO {
 	                order.setproductname(rs.getString("productname"));
 	                order.setprodtype(rs.getString("prodtype"));
 	                order.setprodtypename(rs.getString("prodtypename"));
+	                order.setdesc01(rs.getString("desc01"));
+	                order.setdesc02(rs.getString("desc02"));
+	                order.setdesc03(rs.getString("desc03"));
+	                order.setdesc04(rs.getString("desc04"));
+	                order.setdesc05(rs.getString("desc05"));
+	                order.setdesc06(rs.getString("desc06"));
+	                order.setdesc07(rs.getString("desc07"));
+	                order.setdesc08(rs.getString("desc08"));
+	                order.setdesc09(rs.getString("desc09"));
+	                order.setdesc10(rs.getString("desc10"));
 	                order.setquantity(rs.getInt("quantity"));
 	                order.setprice(rs.getFloat("price"));
 	                order.setamount(rs.getFloat("amount"));
@@ -82,10 +94,30 @@ public class OrderDAOImpl extends JdbcDaoSupport implements OrderDAO {
         });
     }
 
+    public List<Order> listByProject(int projectid) {
+        String sql = "SELECT ord.orderid, ord.orderdate, ord.projectid, proj.projectname, "
+        		+ "ord.productid, prod.productname, "
+        		+ "prod.prodtype, code.codename AS prodtypename, "
+        		+ "prod.desc01, prod.desc02, prod.desc03, prod.desc04, prod.desc05, "
+        		+ "prod.desc06, prod.desc07, prod.desc08, prod.desc09, prod.desc10, "        		
+        		+ "ord.quantity, ord.price, ord.amount, proj.hwdiscount, proj.swdiscount "
+        		+ "FROM tblOrder ord "
+        		+ "LEFT JOIN tblProject proj ON proj.projectid = ord.projectid "
+        		+ "LEFT JOIN tblProduct prod ON prod.productid = ord.productid "        		
+        		+ "LEFT JOIN tblCodeMaster code ON code.codetype = 'PRODUCT' AND code.codeid = prod.prodtype "        		
+        		+ "WHERE ord.projectid = " + projectid + " "
+        		+ "ORDER BY prod.prodtype";
+        OrderMapper mapper = new OrderMapper();
+        List<Order> list = this.getJdbcTemplate().query(sql, mapper);
+        return list;
+    }
+    
     public List<Order> list(int userid) {
         String sql = "SELECT ord.orderid, ord.orderdate, ord.projectid, proj.projectname, "
         		+ "ord.productid, prod.productname, "
         		+ "prod.prodtype, code.codename AS prodtypename, "
+        		+ "prod.desc01, prod.desc02, prod.desc03, prod.desc04, prod.desc05, "
+        		+ "prod.desc06, prod.desc07, prod.desc08, prod.desc09, prod.desc10, "        		
         		+ "ord.quantity, ord.price, ord.amount, proj.hwdiscount, proj.swdiscount "
         		+ "FROM tblOrder ord "
         		+ "LEFT JOIN tblProject proj ON proj.projectid = ord.projectid "
@@ -98,11 +130,13 @@ public class OrderDAOImpl extends JdbcDaoSupport implements OrderDAO {
         List<Order> list = this.getJdbcTemplate().query(sql, mapper);
         return list;
     }
-    
+
     public List<Order> listByTeam(int teamid) {
         String sql = "SELECT ord.orderid, ord.orderdate, ord.projectid, proj.projectname, "
         		+ "ord.productid, prod.productname, "
         		+ "prod.prodtype, code.codename AS prodtypename, "
+        		+ "prod.desc01, prod.desc02, prod.desc03, prod.desc04, prod.desc05, "
+        		+ "prod.desc06, prod.desc07, prod.desc08, prod.desc09, prod.desc10, "        		
         		+ "ord.quantity, ord.price, ord.amount, proj.hwdiscount, proj.swdiscount "
         		+ "FROM tblOrder ord "
         		+ "LEFT JOIN tblProject proj ON proj.projectid = ord.projectid "
@@ -120,6 +154,8 @@ public class OrderDAOImpl extends JdbcDaoSupport implements OrderDAO {
         String sql = "SELECT ord.orderid, ord.orderdate, ord.projectid, proj.projectname, "
         		+ "ord.productid, prod.productname, "
         		+ "prod.prodtype, code.codename AS prodtypename, "
+        		+ "prod.desc01, prod.desc02, prod.desc03, prod.desc04, prod.desc05, "
+        		+ "prod.desc06, prod.desc07, prod.desc08, prod.desc09, prod.desc10, "        		
         		+ "ord.quantity, ord.price, ord.amount, proj.hwdiscount, proj.swdiscount "
         		+ "FROM tblOrder ord "
         		+ "LEFT JOIN tblProject proj ON proj.projectid = ord.projectid "
@@ -137,6 +173,8 @@ public class OrderDAOImpl extends JdbcDaoSupport implements OrderDAO {
         String sql = "SELECT ord.orderid, ord.orderdate, ord.projectid, proj.projectname, "
         		+ "ord.productid, prod.productname, "
         		+ "prod.prodtype, code.codename AS prodtypename, "
+        		+ "prod.desc01, prod.desc02, prod.desc03, prod.desc04, prod.desc05, "
+        		+ "prod.desc06, prod.desc07, prod.desc08, prod.desc09, prod.desc10, "        		
         		+ "ord.quantity, ord.price, ord.amount, proj.hwdiscount, proj.swdiscount "
         		+ "FROM tblOrder ord "
         		+ "LEFT JOIN tblProject proj ON proj.projectid = ord.projectid "
